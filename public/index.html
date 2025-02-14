@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Sebastian Ignacio Carmona Wright</title>
+    <link rel="icon" href="ruta/icono.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="container-fluid">
+        <section class="row profile-section py-5 bg-dark text-white text-center">
+            <div class="col-md-4">
+                <img src="foto.png" alt="Foto de perfil" class="rounded-circle img-fluid" style="max-width: 150px;">
+            </div>
+            <div class="col-md-8">
+                <h1 class="fw-bold">Sebastian Ignacio Carmona Wright</h1>
+                <p>Ingeniería en Informática | Software Developer</p>
+                <p><i class="bi bi-telephone"></i> +(56) 961607915</p>
+                <p><i class="bi bi-envelope"></i> s.carmonawright@gmail.com</p>
+            </div>
+        </section>
+
+        <section class="row social-grid py-5 text-center">
+            <div class="col-md-3">
+                <a href="https://www.linkedin.com/in/sebastian-ignacio-carmona-wright/" class="btn btn-dark w-100 mb-3">
+                    <img src="linkedinn.png" alt="LinkedIn" class="img-fluid mb-2"> LinkedIn
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="https://drive.google.com/drive/folders/1TL_STI3u_jX50Z-NqfW2u0RD4mi1Y4as?usp=drive_link"
+                    class="btn btn-dark w-100 mb-3">
+                    <img src="drivee.png" alt="Google Drive" class="img-fluid mb-2"> Google Drive
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="https://github.com/Hancco05" class="btn btn-dark w-100 mb-3">
+                    <img src="githubb.png" alt="GitHub" class="img-fluid mb-2"> GitHub
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="documents/cv_sebastian.docx" class="btn btn-dark w-100 mb-3" download>
+                    <img src="cvv.png" alt="Currículum Vitae" class="img-fluid mb-2"> CV
+                </a>
+            </div>
+        </section>
+
+        <section class="row contact-section py-5 bg-dark text-white">
+            <div class="col-md-6 offset-md-3 text-center">
+                <h2>Formulario de Contacto</h2>
+                <form id="contactForm" class="p-4 bg-light text-dark rounded">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="asunto" class="form-label">Asunto</label>
+                        <input type="text" id="asunto" name="asunto" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
+                </form>
+                <div id="responseMessage" class="mt-3 text-center"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

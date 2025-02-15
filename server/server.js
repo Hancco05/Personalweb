@@ -1,44 +1,72 @@
-require('dotenv').config();
-const express = require('express');
-const nodemailer = require('nodemailer');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+require("dotenv").config();
+const express = require("express");
+const multer = require("multer");
+const nodemailer = require("nodemailer");
+const cors = require("cors");
+const path = require("path"); // Asegúrate de solo declarar 'path' una vez
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.static('public')); // Servir archivos estáticos (HTML, CSS, JS)
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Configurar Nodemailer
+// Servir archivos estáticos desde la carpeta 'public' en la raíz
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Configurar almacenamiento para Multer (máximo 64MB)
+const storage = multer.memoryStorage();
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 64 * 1024 * 1024 }, // 64MB
+});
+
+// Configurar transporte de Nodemailer
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
-        user: process.env.EMAIL_USER,  // Tu correo de Gmail
-        pass: process.env.EMAIL_PASS   // Tu contraseña o App Password
+        user: process.env.EMAIL_USER, // Configurado en .env
+        pass: process.env.EMAIL_PASS, // Configurado en .env
+    },
+});
+
+// Ruta para recibir el formulario
+app.post("/send", upload.single("archivo"), async (req, res) => {
+    try {
+        const { nombre, email, asunto, mensaje } = req.body;
+        let attachments = [];
+
+        // Si hay un archivo adjunto, lo agregamos
+        if (req.file) {
+            attachments.push({
+                filename: req.file.originalname,
+                content: req.file.buffer, // Archivo en memoria
+            });
+        }
+
+        // Configurar el correo
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to: "destinatario@gmail.com", // Reemplaza con tu correo de destino
+            subject: asunto,
+            text: `Nombre: ${nombre}\nCorreo: ${email}\nMensaje:\n${mensaje}`,
+            attachments, // Adjuntar solo si hay un archivo
+        };
+
+        // Enviar correo
+        await transporter.sendMail(mailOptions);
+        res.json({ success: true, message: "Correo enviado con éxito" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Error al enviar el correo" });
     }
 });
 
-// Ruta para manejar el formulario
-app.post('/send-email', async (req, res) => {
-    const { nombre, email, asunto, mensaje } = req.body;
-
-    const mailOptions = {
-        from: email,
-        to: process.env.EMAIL_USER, // Destinatario (tu correo)
-        subject: `Nuevo mensaje: ${asunto}`,
-        text: `Nombre: ${nombre}\nCorreo: ${email}\nMensaje:\n${mensaje}`
-    };
-
-    try {
-        await transporter.sendMail(mailOptions);
-        res.status(200).json({ message: 'Correo enviado exitosamente' });
-    } catch (error) {
-        res.status(500).json({ message: 'Error al enviar el correo', error });
-    }
+// Ruta para servir el archivo index.html
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 // Iniciar servidor

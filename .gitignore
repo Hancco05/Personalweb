@@ -1,0 +1,42 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Directorios de entorno y configuración
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Caché de Node.js
+.cache/
+*.cache
+.tmp/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Directorios de producción
+dist/
+build/
+
+# Archivos de configuración de editores de código
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Archivos de depuración
+*.swp
+*.swo

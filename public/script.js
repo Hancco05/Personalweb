@@ -1,25 +1,22 @@
-document.getElementById("contactForm").addEventListener("submit", async function(event) {
+document.getElementById("contactForm").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const formData = {
-        nombre: document.getElementById("nombre").value,
-        email: document.getElementById("email").value,
-        asunto: document.getElementById("asunto").value,
-        mensaje: document.getElementById("mensaje").value
-    };
+    const formData = new FormData(this);
 
     try {
-        const response = await fetch("/send-email", {
+        const response = await fetch("/send", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
+            body: formData
         });
 
         const result = await response.json();
-        document.getElementById("responseMessage").innerHTML = `<p class="text-success">${result.message}</p>`;
-        document.getElementById("contactForm").reset();
+
+        if (result.success) {
+            document.getElementById("responseMessage").innerHTML = `<p class="text-success">${result.message}</p>`;
+            this.reset();
+        } else {
+            document.getElementById("responseMessage").innerHTML = `<p class="text-danger">Error al enviar el mensaje.</p>`;
+        }
     } catch (error) {
         document.getElementById("responseMessage").innerHTML = `<p class="text-danger">Error al enviar el mensaje.</p>`;
     }

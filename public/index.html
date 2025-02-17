@@ -7,41 +7,113 @@
     <title>Portafolio - Sebastian Ignacio Carmona Wright</title>
     <link rel="icon" href="ruta/icono.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 40px 0;
+        }
+
+        .social-grid a {
+            text-decoration: none;
+            color: white;
+            background: #1f1f1f;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            border: 2px solid #444;
+        }
+
+        .social-grid a:hover {
+            background: #292929;
+            transform: scale(1.05);
+        }
+
+        .social-grid img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .contact-section {
+            background: #333;
+            padding: 50px 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-section form {
+            background: #555;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .form-control {
+            background: #666;
+            color: white;
+            border: 1px solid #888;
+        }
+
+        .form-control:focus {
+            background: #777;
+            color: white;
+            border: 1px solid #aaa;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
-    <main class="container-fluid">
-        <section class="row social-grid py-5 text-center">
-            <div class="col-md-3">
-                <a href="https://www.linkedin.com/in/sebastian-ignacio-carmona-wright/" class="btn btn-dark w-100 mb-3">
-                    <img src="linkedinn.png" alt="LinkedIn" class="img-fluid mb-2"> LinkedIn
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="https://drive.google.com/drive/folders/1TL_STI3u_jX50Z-NqfW2u0RD4mi1Y4as?usp=drive_link"
-                    class="btn btn-dark w-100 mb-3">
-                    <img src="drivee.png" alt="Google Drive" class="img-fluid mb-2"> Google Drive
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="https://github.com/Hancco05" class="btn btn-dark w-100 mb-3">
-                    <img src="githubb.png" alt="GitHub" class="img-fluid mb-2"> GitHub
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="documents/cv_sebastian.docx" class="btn btn-dark w-100 mb-3" download>
-                    <img src="cvv.png" alt="Currículum Vitae" class="img-fluid mb-2"> CV
-                </a>
-            </div>
+    <main class="container text-center">
+        <!-- Redes Sociales -->
+        <section class="social-grid">
+            <a href="https://www.linkedin.com/in/sebastian-ignacio-carmona-wright/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                <h4>LinkedIn</h4>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1TL_STI3u_jX50Z-NqfW2u0RD4mi1Y4as?usp=drive_link"
+                target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2702/2702130.png" alt="Google Drive">
+                <h4>Google Drive</h4>
+            </a>
+            <a href="https://github.com/Hancco05" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+                <h4>GitHub</h4>
+            </a>
+            <a href="documents/cv_sebastian.docx" download>
+                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991104.png" alt="Currículum Vitae">
+                <h4>Descargar CV</h4>
+            </a>
         </section>
 
-        <section class="row contact-section py-5 bg-dark text-white">
-            <div class="col-md-6 offset-md-3 text-center">
+        <!-- Formulario de Contacto -->
+        <section class="contact-section">
+            <div class="col-md-6 offset-md-3">
                 <h2>Formulario de Contacto</h2>
-                <form id="contactForm" class="p-4 bg-light text-dark rounded" enctype="multipart/form-data" method="POST"
-                    action="/send">
-
+                <form id="contactForm" enctype="multipart/form-data" method="POST">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -60,14 +132,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="archivo" class="form-label">Adjuntar archivo (máx. 64 MB)</label>
-                        <input type="file" id="archivo" name="archivo" class="form-control" accept="image/*,.pdf,.doc,.docx">
+                        <input type="file" id="archivo" name="archivo" class="form-control"
+                            accept="image/*,.pdf,.doc,.docx">
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
                 </form>
                 <div id="responseMessage" class="mt-3 text-center"></div>
             </div>
         </section>
-
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

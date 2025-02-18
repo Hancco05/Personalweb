@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
         body {
+            margin: 0;
+            padding: 0;
             background-color: #121212;
             color: white;
             font-family: Arial, sans-serif;
@@ -42,6 +44,24 @@
 
         .languages img:hover {
             transform: scale(1.1);
+        }
+
+        .adicional-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: auto;
+            gap: 20px;
+        }
+
+        .adicional-text {
+            flex: 1;
+            text-align: justify;
+        }
+
+        .adicional-img img {
+            width: 235px;
         }
 
         .grid-container {
@@ -91,6 +111,9 @@
             width: 100%;
             text-align: center;
             margin-bottom: 20px;
+        }
+        footer {
+            width: 100%;
         }
     </style>
 </head>
@@ -145,7 +168,25 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server">
         </div>
     </div>
-
+    <div class="profile">
+    <h2>Adicional</h2>
+    <div class="adicional-container">
+        <div class="adicional-text">
+            <p>
+                Desde mis primeros años de estudio, supe que la tecnología y el desarrollo de software eran mi camino. Cada
+                proyecto
+                representa un reto y una oportunidad para aprender, mejorar y crear algo significativo. Disfruto trabajar en
+                equipo,
+                compartir conocimientos y enfrentar nuevos desafíos en este mundo en constante evolución.
+            </p>
+        </div>
+        <div class="adicional-img">
+            <img src="https://media.giphy.com/media/QNFhOolVeCzPQ2Mx85/giphy.gif" alt="Computadora GIF">
+        </div>
+    </div>
+    </div>
+    
+    <div class="profile"><h2>Redes y CV</h2></div>
     <div class="grid-container">
         <div class="grid-item">
             <a href="https://www.linkedin.com/in/sebastian-ignacio-carmona-wright/" class="text-white">
@@ -205,6 +246,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    
+    <div class="profile">
+        <div class="adicional-container">
+        <div class="adicional-text">
+            <p>&copy; 2024 Sebastián Ignacio Carmona Wright. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+    
+
 </body>
 
 </html>

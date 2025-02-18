@@ -4,143 +4,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Sebastian Ignacio Carmona Wright</title>
-    <link rel="icon" href="ruta/icono.png" type="image/png">
+    <title>Perfil Profesional - Sebastián Ignacio Carmona Wright</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
         body {
             background-color: #121212;
             color: white;
             font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
         }
 
-        .social-grid {
+        .profile {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .profile img {
+            display: block;
+            margin: 0 auto 10px;
+            width: 100px;
+        }
+
+        .profile h1,
+        .profile h2,
+        .profile h3,
+        .form-container h2 {
+            text-align: center;
+        }
+
+        .languages img {
+            width: 80px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .languages img:hover {
+            transform: scale(1.1);
+        }
+
+        .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            padding: 40px 0;
+            max-width: 800px;
+            margin: auto;
         }
 
-        .social-grid a {
-            text-decoration: none;
-            color: white;
-            background: #1f1f1f;
+        .grid-item {
+            background: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            transition: 0.3s;
-            border: 2px solid #444;
         }
 
-        .social-grid a:hover {
-            background: #292929;
-            transform: scale(1.05);
-        }
-
-        .social-grid img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
+        .grid-item img {
+            width: 50px;
             margin-bottom: 10px;
         }
 
-        .contact-section {
+        .form-container {
             background: #333;
-            padding: 50px 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
-
-        .contact-section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .contact-section form {
-            background: #555;
             padding: 20px;
             border-radius: 10px;
-            color: white;
+            max-width: 600px;
+            margin: 40px auto;
         }
 
-        .form-control {
-            background: #666;
-            color: white;
-            border: 1px solid #888;
+        /* Justificar texto como en Word */
+        p,
+        .form-container p {
+            text-align: justify;
         }
 
-        .form-control:focus {
-            background: #777;
-            color: white;
-            border: 1px solid #aaa;
+        .languages {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        .btn-primary {
-            background: #007bff;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background: #0056b3;
+        /* Ajuste en los títulos */
+        .languages h2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 
 <body>
-    <main class="container text-center">
-        <!-- Redes Sociales -->
-        <section class="social-grid">
-            <a href="https://www.linkedin.com/in/sebastian-ignacio-carmona-wright/" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-                <h4>LinkedIn</h4>
-            </a>
-            <a href="https://drive.google.com/drive/folders/1TL_STI3u_jX50Z-NqfW2u0RD4mi1Y4as?usp=drive_link"
-                target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/2702/2702130.png" alt="Google Drive">
-                <h4>Google Drive</h4>
-            </a>
-            <a href="https://github.com/Hancco05" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
-                <h4>GitHub</h4>
-            </a>
-            <a href="documents/cv_sebastian.docx" download>
-                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991104.png" alt="Currículum Vitae">
-                <h4>Descargar CV</h4>
-            </a>
-        </section>
+    <div class="profile">
+        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Icon">
+        <h1>Sebastián Ignacio Carmona Wright</h1>
+        <h2>Ingeniero en Informática | Software Developer</h2>
+        <p>📞 (+56) 961607915 | 📧 s.carmonawright@gmail.com</p>
+        <p>Desarrollador con experiencia en tecnologías modernas y optimización de soluciones digitales.</p>
+        <p>
+            Ingeniero en Informática de Duoc UC, con experiencia en empresas de los sectores de formulación, desarrollo
+            de páginas web, marketing digital, aplicaciones web y ventas. A lo largo de mi trayectoria, he participado
+            en
+            diversas fases del desarrollo tecnológico, desde la planificación y análisis de requerimientos hasta la
+            implementación y optimización de soluciones digitales.
+        </p>
+        <p>
+            Recientemente, he trabajado en proyectos freelance de desarrollo web, aplicando tecnologías modernas como
+            Node.js,
+            React, Maven, Django (Python) y PHP, lo que me ha permitido profundizar en la creación de aplicaciones
+            dinámicas,
+            escalables y eficientes. Además, cuento con sólidos conocimientos en PHP, Python, Java, React, Node.js y
+            SQL, lo que
+            me ha permitido desarrollar soluciones tanto en el backend como en el frontend, optimizando el rendimiento y
+            la
+            experiencia del usuario.
+        </p>
+        <p>
+            Mi perfil profesional se caracteriza por la autonomía, proactividad y capacidad de adaptación a entornos
+            dinámicos y
+            en constante evolución. Me motiva el aprendizaje continuo y la integración en nuevos equipos de trabajo,
+            donde pueda
+            aportar mis habilidades técnicas y seguir creciendo profesionalmente. Asimismo, poseo un nivel intermedio de
+            inglés,
+            lo que facilita la comunicación y el acceso a documentación y herramientas en entornos internacionales.
+        </p>
+        <h3>🚀 Construyendo soluciones digitales eficientes, innovadoras y escalables.</h3>
+        <div class="languages">
+            <h2>Lenguajes y Tecnologías</h2>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="JavaScript">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server">
+        </div>
+    </div>
 
-        <!-- Formulario de Contacto -->
-        <section class="contact-section">
-            <div class="col-md-6 offset-md-3">
-                <h2>Formulario de Contacto</h2>
-                <form id="contactForm" enctype="multipart/form-data" method="POST">
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="asunto" class="form-label">Asunto</label>
-                        <input type="text" id="asunto" name="asunto" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="mensaje" class="form-label">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="4" class="form-control" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="archivo" class="form-label">Adjuntar archivo (máx. 64 MB)</label>
-                        <input type="file" id="archivo" name="archivo" class="form-control"
-                            accept="image/*,.pdf,.doc,.docx">
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
-                </form>
-                <div id="responseMessage" class="mt-3 text-center"></div>
+    <div class="grid-container">
+        <div class="grid-item">
+            <a href="https://www.linkedin.com/in/sebastian-ignacio-carmona-wright/" class="text-white">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                <p>LinkedIn</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="https://drive.google.com/drive/folders/1TL_STI3u_jX50Z-NqfW2u0RD4mi1Y4as?usp=drive_link"
+                class="text-white">
+                <img src="https://cdn-icons-png.flaticon.com/512/888/888846.png" alt="Google Drive">
+                <p>Google Drive</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="https://github.com/Hancco05" class="text-white">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="GitHub">
+                <p>GitHub</p>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="documents/cv_sebastian.docx" class="text-white" download>
+                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991145.png" alt="CV">
+                <p>Descargar CV</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Contacto</h2>
+        <form id="contactForm">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <input type="text" class="form-control" id="nombre" required>
             </div>
-        </section>
-    </main>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="asunto" class="form-label">Asunto</label>
+                <input type="text" class="form-control" id="asunto" required>
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="archivo" class="form-label">Adjuntar archivo (máx. 64 MB)</label>
+                <input type="file" id="archivo" name="archivo" class="form-control" accept="image/*,.pdf,.doc,.docx">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
+            </form>
+            <div id="responseMessage" class="mt-3 text-center"></div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

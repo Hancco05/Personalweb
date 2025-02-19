@@ -3,7 +3,8 @@ const express = require("express");
 const multer = require("multer");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
-const path = require("path"); // Asegúrate de solo declarar 'path' una vez
+const path = require("path");
+const generateTermsPrivacyPdf = require('./utils/termsPrivacyPdf');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -67,6 +68,11 @@ app.post("/send", upload.single("archivo"), async (req, res) => {
 // Ruta para servir el archivo index.html
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
+});
+
+// Ruta para crear y descargar el PDF con términos y condiciones y política de privacidad
+app.get("/create-terms-privacy", (req, res) => {
+    generateTermsPrivacyPdf(res); // Llama a la función para generar el PDF
 });
 
 // Iniciar servidor

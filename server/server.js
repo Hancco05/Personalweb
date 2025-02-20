@@ -4,7 +4,11 @@ const multer = require("multer");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const path = require("path");
+const fs = require("fs");
+const mammoth = require("mammoth"); // Importar mammoth para convertir docx a HTML
 const generateTermsPrivacyPdf = require('./utils/termsPrivacyPdf');
+const generateCV = require("./utils/generateCV");
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,6 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Servir archivos estáticos desde la carpeta 'public' en la raíz
 app.use(express.static(path.join(__dirname, '../public')));
+
+
 
 // Configurar almacenamiento para Multer (máximo 64MB)
 const storage = multer.memoryStorage();
@@ -70,10 +76,56 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
+// Ruta para convertir el archivo .docx a HTML y visualizarlo
+app.get("/view-cv", (req, res) => {
+    const docxPath = path.join(__dirname, 'doc', 'cv.docx');
+
+    // Leer el archivo .docx y convertirlo a HTML
+    mammoth.convertToHtml({ path: docxPath })
+        .then(result => {
+            const htmlContent = result.value;
+            res.send(`
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Visualizar CV</title>
+                </head>
+                <body>
+                    <h1>Currículum Vitae</h1>
+                    <div>${htmlContent}</div>
+                </body>
+                </html>
+            `);
+        })
+        .catch(error => {
+            res.status(500).send('Error al procesar el archivo .docx');
+            console.error(error);
+        });
+});
+
+// Ruta para descargar el archivo .docx
+app.get("/download-cv", (req, res) => {
+    const filePath = path.join(__dirname, 'doc', 'cv.docx');
+    res.download(filePath, 'cv.docx', (err) => {
+        if (err) {
+            console.error('Error al descargar el archivo', err);
+            res.status(500).send('Error al descargar el archivo');
+        }
+    });
+});
+
 // Ruta para crear y descargar el PDF con términos y condiciones y política de privacidad
 app.get("/create-terms-privacy", (req, res) => {
     generateTermsPrivacyPdf(res); // Llama a la función para generar el PDF
 });
+
+// Ruta para generar y descargar el CV en PDF
+app.get("/download-cv-pdf", (req, res) => {
+    generateCV(res);
+});
+
 
 // Iniciar servidor
 app.listen(PORT, () => {

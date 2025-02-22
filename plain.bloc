@@ -1,0 +1,39 @@
+Resumen del Proyecto - Generación de CV en PDF con Node.js
+
+1. Descripción:
+   - Aplicación en Node.js que genera un CV en formato PDF con dos páginas.
+   - Usa la librería PDFKit para generar el documento.
+   - Permite la descarga del PDF a través de una ruta en el servidor.
+
+2. Estructura del Proyecto:
+   /server
+   ├── server.js  --> Archivo principal que ejecuta el servidor Express.
+   ├── /utils
+   │   ├── generateCV.js  --> Genera el archivo PDF con el CV.
+   ├── /doc
+   │   ├── cv_sebastian_carmona_wright.pdf  --> CV generado automáticamente.
+
+3. Instalación:
+   - Instalar dependencias necesarias:
+     npm install express pdfkit fs path cors nodemailer dotenv
+
+4. Uso:
+   - Ejecutar el servidor:
+     node server.js
+   - Acceder desde el navegador para descargar el CV:
+     http://localhost:3000/download-cv-pdf
+
+5. Funcionalidades:
+   - Genera un CV con:
+     ✅ Información personal
+     ✅ Experiencia laboral con viñetas
+     ✅ Sección de habilidades y cursos
+     ✅ Títulos centrados y textos justificados
+     ✅ Distribución en dos páginas con salto automático
+
+6. Mejoras futuras:
+   - Agregar una opción para personalizar el CV.
+   - Permitir la generación en otros formatos (Word, JSON).
+
+Autor: Sebastián Ignacio Carmona Wright
+Fecha: 2025

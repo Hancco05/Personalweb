@@ -14,8 +14,21 @@ function generateCV(res) {
     const stream = fs.createWriteStream(pdfPath);
     doc.pipe(stream);
 
+    // Función para centralizar el cambio de color
+    function setFillColor(color) {
+        doc.fillColor(color);
+    }
+
     function addTitle(text) {
         doc.font("Helvetica-Bold").fontSize(18).text(text, { align: "center" }).moveDown(1);
+    }
+
+    function addTitle1(text) {
+        doc.font("Helvetica-Bold").fontSize(15).text(text, { align: "center" }).moveDown(1);
+    }
+    
+    function addText1(text) {
+        doc.font("Helvetica-Bold").fontSize(13).text(text, { align: "center" }).moveDown(1);
     }
 
     function addSectionTitle(text) {
@@ -23,26 +36,30 @@ function generateCV(res) {
     }
 
     function addText(text, options = {}) {
-        doc.font("Helvetica").fontSize(10).text(text, { align: "justify", ...options }).moveDown(0.5);
+        doc.font("Helvetica").fontSize(12).text(text, { align: "justify", ...options }).moveDown(0.5);
     }
 
     function addBulletPoint(text) {
-        doc.font("Helvetica").fontSize(10).text(`• ${text}`, { align: "justify" }).moveDown(0.3);
+        doc.font("Helvetica").fontSize(12).text(`• ${text}`, { align: "justify" }).moveDown(0.3);
     }
 
     addTitle("SEBASTIAN IGNACIO CARMONA WRIGHT");
-    addText("19.904.461-3");
-    addText("(56 9) 76654966  |  (56 9) 61607915");
-    addText("Edad: 26 años | Nacionalidad: Chilena");
-    addText("Dirección: Pasaje Matías 1167, Maipú");
-    doc.fillColor("blue").text("s.carmonawright@gmail.com", { link: "mailto:s.carmonawright@gmail.com", underline: true });
-    doc.fillColor("blue").text("Página Web Portfolio: https://sebastiancarmonawright.netlify.app/", { link: "https://sebastiancarmonawright.netlify.app/", underline: true });
-    doc.fillColor("black");
+    addText1("19.904.461-3");
+    addText1("(56 9) 76654966  |  (56 9) 61607915");
+    addText1("Edad: 26 años | Nacionalidad: Chilena");
+    addText1("Dirección: Pasaje Matías 1167, Maipú");
+    setFillColor("blue");  // Usamos la función para cambiar el color
+    addText1("s.carmonawright@gmail.com", { link: "mailto:s.carmonawright@gmail.com", underline: true });
+    addText1("Página Web Portfolio: https://sebastiancarmonawright.netlify.app/", { link: "https://sebastiancarmonawright.netlify.app/", underline: true });
+    setFillColor("black");  // Vuelves a poner el color por defecto
 
-    addTitle("Resumen Profesional");
-    addText("Ingeniero en informática con experiencia en desarrollo web, marketing digital, aplicaciones web y ventas. Conocimientos en PHP, Python, Java, React, Node y SQL. Profesional autónomo, proactivo y con capacidad de adaptación.");
+    addTitle1("Resumen Profesional");
+    addText("Ingeniero en informática con experiencia en desarrollo web, marketing digital, aplicaciones web y soporte Ti. Conocimientos en PHP, Python, Java, React, Node y SQL. Profesional autónomo, proactivo y con capacidad de adaptación.");
+    
+    addText("_____________________________________________________________________________");
+    addText("_____________________________________________________________________________");
 
-    addTitle("Antecedentes Laborales");
+    addTitle1("Antecedentes Laborales");
     
     const experiencias = [
         { empresa: "Collins (Jul 2024 – Oct 2024)", cargo: "Desarrollador y soporte TI", descripcion: [
@@ -81,17 +98,26 @@ function generateCV(res) {
         exp.descripcion.forEach(desc => addBulletPoint(desc));
     });
 
-    doc.addPage();
+    addText("_____________________________________________________________________________");
+    addText("_____________________________________________________________________________");
     
-    addTitle("Antecedentes Académicos");
+    addTitle1("Antecedentes Académicos");
     addText("Instituto Profesional Duoc UC, Maipú - Ingeniería en informática (Egresado 2024)");
     
-    addTitle("Seminarios y Cursos");
-    addText("Asp.net Core 5 - 2022 | Desarrollo en Microsoft Power Apps - 2022 | PL/SQL Oracle - 2021");
-    
-    addTitle("Información Adicional");
+    addText("_____________________________________________________________________________");
+    addText("_____________________________________________________________________________");
+
+    addTitle1("Seminarios y Cursos");
+    addText("Asp.net Core 5 - 2022");
+    addText("Desarrollo en Microsoft Power Apps - 2022");
+    addText("PL/SQL Oracle - 2021");
+
+    addText("_____________________________________________________________________________");
+    addText("_____________________________________________________________________________");
+
+    addTitle1("Información Adicional");
     addText("Idiomas: Inglés oral y escrito, nivel intermedio.");
-    addText("Software: PHP, Java, Python, React, Node.js, SQL, PowerBI, Selenium, WordPress, HTML5/CSS3.");
+    addText("Software: PHP, Java, Python, React, Node.js, SQL, PowerBI, Selenium, WordPress, HTML5/CSS3, Javascript, Wordpress, MongoDB, Power Platforms, Ms Office.");
     addText("Actividades e Intereses: Fui jugador semi profesional de videojuegos Rocket League y speedrun aficionado de videojuegos de la saga Resident Evil, mantenimiento de hardware y software y futbol.");
     
     addText("DISPONIBILIDAD INMEDIATA");

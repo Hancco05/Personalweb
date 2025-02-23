@@ -56,10 +56,10 @@ function generateCV(res) {
     addTitle1("Resumen Profesional");
     addText("Ingeniero en informática con experiencia en desarrollo web, marketing digital, aplicaciones web y soporte Ti. Conocimientos en PHP, Python, Java, React, Node y SQL. Profesional autónomo, proactivo y con capacidad de adaptación.");
     
-    addText("____________________________________________________________________________");
-    addText("____________________________________________________________________________");
-
+    addText("___________________________________________________________________________");
     addTitle1("Antecedentes Laborales");
+    addText("——————————————————————————————————————————");
+
     
     const experiencias = [
         { empresa: "Collins (Jul 2024 – Oct 2024)", cargo: "Desarrollador y soporte TI", descripcion: [
@@ -98,27 +98,27 @@ function generateCV(res) {
         exp.descripcion.forEach(desc => addBulletPoint(desc));
     });
 
-    addText("____________________________________________________________________________");
-    addText("____________________________________________________________________________");
-    
+    addText("___________________________________________________________________________");
     addTitle1("Antecedentes Académicos");
+    addText("——————————————————————————————————————————");
+    
     addText("Instituto Profesional Duoc UC, Maipú - Ingeniería en informática (Egresado 2024)");
     addText("Colegio Instituto Ramón Freire, Maipú - Enseñanza media (2015 - 2016)");
     addText("Colegio del real, Maipú - Enseñanza media (2013 - 2014)");
     
-    addText("____________________________________________________________________________");
-    addText("____________________________________________________________________________");
-
+    addText("___________________________________________________________________________");
     addTitle1("Seminarios y Cursos");
+    addText("——————————————————————————————————————————");
+
     addText("React y Node.js - 2025");
     addText("Asp.net Core 5 - 2022");
     addText("Desarrollo en Microsoft Power Apps - 2022");
     addText("PL/SQL Oracle - 2021");
 
-    addText("____________________________________________________________________________");
-    addText("____________________________________________________________________________");
-
+    addText("___________________________________________________________________________");
     addTitle1("Información Adicional");
+    addText("——————————————————————————————————————————");
+
     addText("Idiomas: Inglés oral y escrito, nivel intermedio.");
     addText("Software: PHP, Java, Python, React, Node.js, SQL, PowerBI, Selenium, WordPress, HTML5/CSS3, Javascript, Wordpress, MongoDB, Power Platforms, Ms Office.");
     addText("Actividades e Intereses: Jugador semi profesional de videojuegos Rocket League y speedrun aficionado de videojuegos de la saga Resident Evil, mantenimiento de hardware y software y futbol.");

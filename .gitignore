@@ -40,3 +40,5 @@ build/
 # Archivos de depuración
 *.swp
 *.swo
+# Proyecto listo para producción 🚀  
+# Ignorados: dependencias, archivos temporales, logs, builds, configs sensibles y archivos del sistema.  
